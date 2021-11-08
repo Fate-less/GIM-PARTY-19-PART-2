@@ -343,6 +343,7 @@
 "Assets/Scripts/Box.cs"
 "Assets/Scripts/CameraScript.cs"
 "Assets/Scripts/GameController.cs"
+"Assets/Scripts/ScoreScript.cs"
 "Assets/Scripts/Spawner.cs"
 -langversion:8.0
 

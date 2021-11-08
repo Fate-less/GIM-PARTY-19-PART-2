@@ -70,6 +70,7 @@ public class Box : MonoBehaviour
 
         GameController.instance.SpawnNewBox();
         GameController.instance.MoveCamera();
+        ScoreScript.instance.scoreCount();
     }
 
     void OnCollisionEnter2D(Collision2D target)
