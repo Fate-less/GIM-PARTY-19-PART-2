@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Box : MonoBehaviour
 {
@@ -102,7 +103,7 @@ public class Box : MonoBehaviour
             CancelInvoke("Landed");
             gameOver = true;
             ignoreTrigger = true;
-            Destroy(gameObject);
+            SceneManager.LoadScene(2);
         }
     }
 }
