@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\Box.cs" />
     <Compile Include="Assets\Scripts\Restart.cs" />
+    <Compile Include="Assets\Scripts\PlayerScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
