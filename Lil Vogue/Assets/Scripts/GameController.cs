@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     private int moveCount;
     [HideInInspector]
     public Box currentBox;
-
+    public float cameraFollow;
     private void Awake()
     {
         if (instance == null)
@@ -50,10 +50,10 @@ public class GameController : MonoBehaviour
     public void MoveCamera()
     {
         moveCount++;
-        if(moveCount == 3)
+        if(moveCount == 2)
         {
             moveCount = 0;
-            cameraScript.targetPos.y += 2f;
+            cameraScript.targetPos.y += cameraFollow;
         }
     }
 }

@@ -92,8 +92,21 @@ public class Box : MonoBehaviour
         }
     }
 
+    void OnCollisionExit2D(Collision2D target)
+    {
+        CancelInvoke("Landed");
+        gameOver = true;
+        ignoreTrigger = false;
+    }
     void OnTriggerEnter2D(Collider2D target)
     {
+        if (target.tag == "GameEnd")
+        {
+            CancelInvoke("Landed");
+            gameOver = true;
+            ignoreTrigger = true;
+            SceneManager.LoadScene(2);
+        }
         if (ignoreTrigger)
         {
             return;

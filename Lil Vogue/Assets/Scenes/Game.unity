@@ -155,6 +155,7 @@ MonoBehaviour:
   box_Spawner: {fileID: 1546147393}
   cameraScript: {fileID: 519420030}
   currentBox: {fileID: 0}
+  cameraFollow: 4.5
 --- !u!4 &192935169
 Transform:
   m_ObjectHideFlags: 0
@@ -299,7 +300,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.42030263}
+  m_Offset: {x: 0.16098261, y: 0.42030263}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -310,7 +311,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.363195, y: 0.57848597}
+  m_Size: {x: 13.581965, y: 0.57848597}
   m_EdgeRadius: 0
 --- !u!4 &356389416
 Transform:
@@ -320,8 +321,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356389414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.18, y: -3.46, z: 9.0463085}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.24, y: -5.12, z: 9.0463085}
+  m_LocalScale: {x: -1.57, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 519420032}
   m_RootOrder: 1
@@ -530,6 +531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 756740077}
   - component: {fileID: 756740076}
+  - component: {fileID: 756740078}
   m_Layer: 0
   m_Name: bg menu
   m_TagString: Untagged
@@ -598,11 +600,24 @@ Transform:
   m_GameObject: {fileID: 756740075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0044, y: 0.0074, z: 91}
-  m_LocalScale: {x: 6.5738626, y: 3.8403215, z: 3.8403215}
+  m_LocalScale: {x: 6.5738626, y: 3.8403213, z: 3.8403215}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &756740078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756740075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236694e134ee9164ea403760e766bb88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffectMultiplier: {x: 0, y: 0}
 --- !u!1 &880861508
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,8 +629,8 @@ GameObject:
   - component: {fileID: 880861510}
   - component: {fileID: 880861509}
   m_Layer: 0
-  m_Name: GameOver (1)
-  m_TagString: GameOver
+  m_Name: GameEnd
+  m_TagString: GameEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,7 +648,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.6611543, y: 0.45531774}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -653,13 +668,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880861508}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.34, y: -0.24, z: 9.0463085}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.13216983, w: 0.9912271}
+  m_LocalPosition: {x: -9.8, y: -0.06, z: 11.94}
+  m_LocalScale: {x: 0.1, y: 15.2, z: 1}
   m_Children: []
   m_Father: {fileID: 519420032}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.19}
 --- !u!1 &1352557682
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0baaccf8c041ff48aef0720d09df03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   animator: {fileID: 0}
 --- !u!95 &1671622007
 Animator:
@@ -956,8 +971,8 @@ GameObject:
   - component: {fileID: 1816059337}
   - component: {fileID: 1816059336}
   m_Layer: 0
-  m_Name: GameOver (2)
-  m_TagString: GameOver
+  m_Name: GameEnd
+  m_TagString: GameEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -975,7 +990,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.6611543, y: 0.45531774}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -995,10 +1010,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816059335}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.04, y: 0.02, z: 9.0463085}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.13216983, w: 0.9912271}
+  m_LocalPosition: {x: 9.83, y: 0.06, z: 9.0463085}
+  m_LocalScale: {x: 0.1, y: 15.1, z: 1}
   m_Children: []
   m_Father: {fileID: 519420032}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.19}
