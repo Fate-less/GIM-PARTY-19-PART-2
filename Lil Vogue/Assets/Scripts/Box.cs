@@ -12,6 +12,8 @@ public class Box : MonoBehaviour
     private bool gameOver;
     private bool ignoreCollision;
     private bool ignoreTrigger;
+    public string Game, MobiGame;
+    private Scene scene;
 
     private void Awake()
     {
@@ -22,8 +24,10 @@ public class Box : MonoBehaviour
     private void Start()
     {
         canMove = true;
+        scene = SceneManager.GetActiveScene();
+        Debug.Log("Name: " + scene.name);
 
-        if(Random.Range(0, 2) > 0)
+        if (Random.Range(0, 2) > 0)
         {
             move_Speed *= -1f;
         }
@@ -105,7 +109,15 @@ public class Box : MonoBehaviour
             CancelInvoke("Landed");
             gameOver = true;
             ignoreTrigger = true;
-            SceneManager.LoadScene(2);
+            Scene scene = SceneManager.GetActiveScene();
+            if (scene.name == "Game")
+            {
+                SceneManager.LoadScene(2);
+            }
+            if (scene.name == "MobiGame")
+            {
+                SceneManager.LoadScene(6);
+            }
         }
         if (ignoreTrigger)
         {
@@ -116,7 +128,15 @@ public class Box : MonoBehaviour
             CancelInvoke("Landed");
             gameOver = true;
             ignoreTrigger = true;
-            SceneManager.LoadScene(2);
+            Scene scene = SceneManager.GetActiveScene();
+            if (scene.name == "Game")
+            {
+                SceneManager.LoadScene(2);
+            }
+            if (scene.name == "MobiGame")
+            {
+                SceneManager.LoadScene(6);
+            }
         }
     }
 }
