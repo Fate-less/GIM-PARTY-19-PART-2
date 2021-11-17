@@ -14,6 +14,11 @@ public class PowerUp : MonoBehaviour
     public float Multiplier;
     public float Duration;
     private GameObject box;
+
+    private void Update()
+    {
+        Destroy(gameObject, 3);
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
