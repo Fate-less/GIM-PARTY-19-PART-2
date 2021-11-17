@@ -145,3 +145,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8ed6c5cc0ec124e873422472368487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Game: 
+  MobiGame: 
