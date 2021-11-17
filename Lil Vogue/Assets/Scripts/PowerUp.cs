@@ -4,34 +4,31 @@ using UnityEngine;
 
 public enum PowerUpsandDowns
 {
-    platformEnlarge,
+    buildingEnlarge,
     characterAccelerate
 }
 
 public class PowerUp : MonoBehaviour
 {
-    public PowerUpsandDowns powerUporDownType;
+    public PowerUpsandDowns powerType;
     public float Multiplier;
     public float Duration;
-
+    private GameObject box;
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("masuk");
         if (other.tag == "Player")
         {
-            Debug.Log("yey");
+            Debug.Log("duar");
             StartCoroutine(Pickup(other));
         }
     }
 
     IEnumerator Pickup(Collider2D Player)
     {
-
-        PlayerScript stats = Player.GetComponent<PlayerScript>();
-
-        switch(powerUporDownType)
+        switch(powerType)
         {
             case PowerUpsandDowns.characterAccelerate:
+                PlayerScript stats = Player.GetComponent<PlayerScript>();
                 stats.speed *= Multiplier;
 
                 GetComponent<SpriteRenderer>().enabled = false;
@@ -44,7 +41,29 @@ public class PowerUp : MonoBehaviour
                 Destroy(gameObject);
 
                 break;
-        }
+            case PowerUpsandDowns.buildingEnlarge:
+                GameObject box = GameObject.Find("Square");
+                if(box != null)
+                {
+                    Box x = box.GetComponent<Box>();
+                    x.move_Speed *= Multiplier;
 
+                    GetComponent<SpriteRenderer>().enabled = false;
+                    GetComponent<CircleCollider2D>().enabled = false;
+
+                    yield return new WaitForSeconds(Duration);
+
+                    x.move_Speed /= Multiplier;
+
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    Debug.Log("sadge");
+                }
+
+                break;
+        }
+        
     }
 }

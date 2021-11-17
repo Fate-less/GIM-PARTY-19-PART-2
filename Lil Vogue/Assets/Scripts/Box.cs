@@ -8,7 +8,7 @@ public class Box : MonoBehaviour
     private Rigidbody2D boxBody;
     private float min_X = -5f, max_X = 5f;
     private bool canMove;
-    private float move_Speed = 4f;
+    public float move_Speed = 4f;
     private bool gameOver;
     private bool ignoreCollision;
     private bool ignoreTrigger;
