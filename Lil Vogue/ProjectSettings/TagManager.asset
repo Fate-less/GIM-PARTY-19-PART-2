@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - Square
   - GameEnd
+  - Buff
   layers:
   - Default
   - TransparentFX

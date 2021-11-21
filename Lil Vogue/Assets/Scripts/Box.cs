@@ -12,6 +12,7 @@ public class Box : MonoBehaviour
     private bool gameOver;
     private bool ignoreCollision;
     private bool ignoreTrigger;
+    public bool isFrozen = false;
     public string Game, MobiGame;
     private Scene scene;
 
@@ -78,21 +79,37 @@ public class Box : MonoBehaviour
         ScoreScript.instance.scoreCount();
     }
 
+    void LandedFreeze()
+    {
+        if (gameOver)
+            return;
+
+        ignoreCollision = true;
+        ignoreTrigger = true;
+
+        GameController.instance.SpawnNewBox();
+        GameController.instance.MoveCamera();
+        ScoreScript.instance.scoreCount();
+        frozen();
+    }
+
     void OnCollisionEnter2D(Collision2D target)
     {
         if (ignoreCollision)
         {
             return;
         }
-        if(target.gameObject.tag == "Platform")
+        if(target.gameObject.tag == "Square" && isFrozen)
         {
-            Invoke("Landed", 1f);
+            Invoke("LandedFreeze", 1f);
             ignoreCollision = true;
+            Debug.Log("frozen box");
         }
-        if (target.gameObject.tag == "Square")
+        if (target.gameObject.tag == "Square" && !isFrozen)
         {
             Invoke("Landed", 1f);
             ignoreCollision = true;
+            Debug.Log("normal box");
         }
     }
 
@@ -131,12 +148,27 @@ public class Box : MonoBehaviour
             Scene scene = SceneManager.GetActiveScene();
             if (scene.name == "Game")
             {
+                isFrozen = false;
                 SceneManager.LoadScene(2);
             }
             if (scene.name == "MobiGame")
             {
+                isFrozen = false;
                 SceneManager.LoadScene(6);
             }
         }
+
     }
+    public void frozen()
+    {
+        boxBody.gravityScale = 0f;
+        GetComponent<Rigidbody2D>().constraints =
+        RigidbodyConstraints2D.FreezeAll;
+        Debug.Log("iceiceice");
+    }
+
+    //public void melt()
+    //{
+    //    GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+    //}
 }

@@ -55,18 +55,34 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PowerUp.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\player2\Spawner2.cs" />
     <Compile Include="Assets\Scripts\SwitchPlayer1.cs" />
+    <Compile Include="Assets\Scripts\player3\PlayerScript3.cs" />
     <Compile Include="Assets\Scripts\ScoreScript.cs" />
+    <Compile Include="Assets\Scripts\player2\GameController2.cs" />
+    <Compile Include="Assets\Scripts\Freeze.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
+    <Compile Include="Assets\Scripts\player3\Spawner3.cs" />
+    <Compile Include="Assets\Scripts\player3\Restart3.cs" />
     <Compile Include="Assets\Scripts\player2\SwitchPlayer2.cs" />
+    <Compile Include="Assets\Scripts\player3\Box3.cs" />
     <Compile Include="Assets\Scripts\ParallaxBackground.cs" />
+    <Compile Include="Assets\Scripts\player2\Box2.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
+    <Compile Include="Assets\Scripts\player3\GameController3.cs" />
+    <Compile Include="Assets\Scripts\player3\SwitchPlayer3.cs" />
     <Compile Include="Assets\Scripts\player2\Restart2.cs" />
+    <Compile Include="Assets\Scripts\PowerUpBackup.cs" />
+    <Compile Include="Assets\Scripts\BuffSpawnScript.cs" />
+    <Compile Include="Assets\Scripts\MoneyScript.cs" />
+    <Compile Include="Assets\Scripts\player2\PlayerScript2.cs" />
     <Compile Include="Assets\Scripts\Box.cs" />
     <Compile Include="Assets\Scripts\CharacterTab.cs" />
     <Compile Include="Assets\Scripts\Restart.cs" />
-    <Compile Include="Assets\Scripts\BuffSpawnScript.cs" />
+    <Compile Include="Assets\Scripts\MoneyManager.cs" />
+    <Compile Include="Assets\Scripts\ResetMoney.cs" />
+    <Compile Include="Assets\Scripts\InGameMoneyText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -2,28 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PowerUpsandDowns
+public enum BuffDebuff
 {
-    buildingEnlarge,
-    characterAccelerate
+    freeze
 }
 
 public class PowerUp : MonoBehaviour
 {
-    public PowerUpsandDowns powerType;
+    public BuffDebuff powerType;
     public float Multiplier;
     public float Duration;
+    public Box abox;
     private GameObject box;
 
     private void Update()
     {
         Destroy(gameObject, 3);
     }
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            Debug.Log("duar");
+            Debug.Log("buff applied");
             StartCoroutine(Pickup(other));
         }
     }
@@ -32,42 +32,15 @@ public class PowerUp : MonoBehaviour
     {
         switch(powerType)
         {
-            case PowerUpsandDowns.characterAccelerate:
-                PlayerScript stats = Player.GetComponent<PlayerScript>();
-                stats.speed *= Multiplier;
-
+            case BuffDebuff.freeze:
+                abox.isFrozen = true;
                 GetComponent<SpriteRenderer>().enabled = false;
                 GetComponent<CircleCollider2D>().enabled = false;
-
+                Debug.Log("frozen");
                 yield return new WaitForSeconds(Duration);
-
-                stats.speed /= Multiplier;
-
-                Destroy(gameObject);
-
+                abox.isFrozen = false;
                 break;
-            case PowerUpsandDowns.buildingEnlarge:
-                GameObject box = GameObject.Find("Square");
-                if(box != null)
-                {
-                    Box x = box.GetComponent<Box>();
-                    x.move_Speed *= Multiplier;
-
-                    GetComponent<SpriteRenderer>().enabled = false;
-                    GetComponent<CircleCollider2D>().enabled = false;
-
-                    yield return new WaitForSeconds(Duration);
-
-                    x.move_Speed /= Multiplier;
-
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    Debug.Log("sadge");
-                }
-
-                break;
+            
         }
         
     }

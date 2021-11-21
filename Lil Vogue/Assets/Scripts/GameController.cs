@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public Box currentBox;
     public float cameraFollow;
+    public MoneyScript moneyScript;
     private void Awake()
     {
         if (instance == null)
@@ -45,6 +46,7 @@ public class GameController : MonoBehaviour
     public void NewBox()
     {
         box_Spawner.SpawnBox();
+        moneyScript.GetComponent<MoneyScript>().addMoney(10);
     }
 
     public void MoveCamera()
